@@ -1,6 +1,6 @@
 {
   "name": "karma-failed-reporter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Karma plugin. Report all failed specs.",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaapz/karma-failed-reporter.git"
+    "url": "git://github.com/gilsmdt/karma-failed-reporter.git"
   },
   "keywords": [
     "karma-plugin",
     "reporter"
   ],
   "author": {
-    "name": "Jaap Broekhuizen",
-    "email": "jaapz.b@gmail.com"
+    "name": "Gil Schmidt"
   },
   "dependencies": {
     "colors": "~0.6.0"
@@ -27,6 +26,6 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/jaapz/karma-failed-reporter/issues"
+    "url": "https://github.com/gilsmdt/karma-failed-reporter/issues"
   }
 }

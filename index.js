@@ -14,7 +14,7 @@ var FailedReporter = function (baseReporterDecorator, formatError) {
         browsers.forEach(
             function (browser, index) {
                 if (results.failed) {
-                    html += '<div>' + browser + ' failed specs:</div>';
+                    html += '<h1>' + browser + ' failed specs:</h1>';
                     that.write('\n' + browser + ' failed specs:\n'.red)
                     if (failedSpecs[browser.id]) {
                         failedSpecs[browser.id].forEach(
@@ -24,18 +24,18 @@ var FailedReporter = function (baseReporterDecorator, formatError) {
                                         if (index === 0) {
                                             that.write('  ');
                                         }
-                                        html += '<div>' + suiteName + '</div>';
+                                        html += '<h2>' + suiteName + '</h2>';
                                         that.write(suiteName + ' > '.grey);
                                     })
                                 );
                                 
                                 // Write descrition and error to the list.
-                                html += '<div>' + spec.description + '</div>';
+                                html += '<h3>' + spec.description + '</h3>';
                                 that.write(spec.description + '\n');
                                 
                                 var msg = '';
                                 spec.log.forEach(function (log) {
-                                    html += '<div style="padding-left:10px">' + log + '</div>';
+                                    html += '<div style="padding-left:10px; color:#8F1428">' + formatError(log) + '</div>';
                                     msg += formatError(log, '\t');
                                 });
                                 that.write(msg + '\n\n');

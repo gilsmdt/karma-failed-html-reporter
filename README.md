@@ -17,6 +17,7 @@ License
 Legal stuff...
 
     Copyright (C) 2014 Jaap Broekhuizen <jaapz.b@gmail.com>
+                  2016 Gil Schmidt
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),

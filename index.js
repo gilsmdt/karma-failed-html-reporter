@@ -1,59 +1,79 @@
 require('colors');
 
-var FailedReporter = function(baseReporterDecorator, formatError) {
-  baseReporterDecorator(this);
+var FailedReporter = function (baseReporterDecorator, formatError) {
+    const DEFAULT_FILE_NAME = 'failedReport.html';
 
-  this.failedSpecs = [];
-
-  this.onRunComplete = function(browsers, results) {
-    browsers.forEach(
-        (function(browser, index) {
-            if (results.failed) {
-                this.write('\n' + browser + ' failed specs:\n'.red)
-                if (this.failedSpecs[browser.id]) {
-                    this.failedSpecs[browser.id].forEach(
-                        (function(value, index) {
-                            value.suite.forEach(
-                                (function(value, index) {
-                                    if(index === 0) {
-                                        this.write('  ');
-                                    }
-                                    this.write(value + ' > '.grey);
-                                }).bind(this)
-                            );
-
-                            // Write descrition and error to the list.
-                            this.write(value.description + '\n');
-
-                            var msg = '';
-                            value.log.forEach(function(log) {
-                                msg += formatError(log, '\t');
-                            });
-                            this.write(msg + '\n\n');
-                        }).bind(this)
-                    );
+    var that = this;
+    var failedSpecs = [];
+    
+    baseReporterDecorator(this);
+    
+    this.onRunComplete = function(browsers, results) {
+        var html = '<html><head><title>Karma failed tests report</title></head><body>';
+        
+        browsers.forEach(
+            function (browser, index) {
+                if (results.failed) {
+                    html += '<div>' + browser + ' failed specs:</div>';
+                    that.write('\n' + browser + ' failed specs:\n'.red)
+                    if (failedSpecs[browser.id]) {
+                        failedSpecs[browser.id].forEach(
+                            (function (spec, index) {
+                                spec.suite.forEach(
+                                    (function (suiteName, index) {
+                                        if (index === 0) {
+                                            that.write('  ');
+                                        }
+                                        html += '<div>' + suiteName + '</div>';
+                                        that.write(suiteName + ' > '.grey);
+                                    })
+                                );
+                                
+                                // Write descrition and error to the list.
+                                html += '<div>' + spec.description + '</div>';
+                                that.write(spec.description + '\n');
+                                
+                                var msg = '';
+                                spec.log.forEach(function (log) {
+                                    html += '<div style="padding-left:10px">' + log + '</div>';
+                                    msg += formatError(log, '\t');
+                                });
+                                that.write(msg + '\n\n');
+                            })
+                        );
+                    }
+                    
+                    html += '</body></html>';
+                    writeToFile(html);
                 }
+            })        
+        
+        that.write("\n");
+        this.failedSpecs = [];
+    }
+    
+    this.onSpecComplete = function(browser, result) {
+        if (result.success === false) {
+            if (!failedSpecs[browser.id]) {
+                failedSpecs[browser.id] = [];
             }
-        }).bind(this)
-    )
 
-    this.write("\n");
-    this.failedSpecs = [];
-  };
-
-  this.currentSuite = [];
-  this.onSpecComplete = function(browser, result) {
-      if (result.success === false) {
-        if (!this.failedSpecs[browser.id]) {
-            this.failedSpecs[browser.id] = [];
+            failedSpecs[browser.id].push(result);
         }
-        this.failedSpecs[browser.id].push(result);
-      }
+    }
+    
+    function writeToFile(data) {
+        var fs = require('fs');
+        var path = require('path');        
+        //TODO: support filename from configuration
+        var filePath = path.join(__dirname, DEFAULT_FILE_NAME);
+        
+        fs.writeFileSync(filePath, data);
     }
 };
 
 FailedReporter.$inject = ['baseReporterDecorator', 'formatError'];
 
 module.exports = {
-  'reporter:failed': ['type', FailedReporter]
+    'reporter:failed': ['type', FailedReporter]
 };

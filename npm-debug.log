@@ -1,0 +1,102 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Gil_S\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish',
+1 verbose cli   './' ]
+2 info using npm@3.7.3
+3 info using node@v4.3.1
+4 verbose publish [ './' ]
+5 silly cache add args [ './', null ]
+6 verbose cache add spec ./
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: './',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: './',
+7 silly cache add   spec: 'c:\\Users\\Gil_S\\Source\\Repos\\karma-failed-html-reporter',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\Gil_S\AppData\Roaming\npm-cache\karma-failed-html-reporter\0.0.6\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\Gil_S\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle karma-failed-html-reporter@0.0.6~prepublish: karma-failed-html-reporter@0.0.6
+11 silly lifecycle karma-failed-html-reporter@0.0.6~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\Gil_S\\AppData\\Roaming\\npm-cache\\karma-failed-html-reporter\\0.0.6\\package.tgz',
+12 verbose tar pack   'c:\\Users\\Gil_S\\Source\\Repos\\karma-failed-html-reporter' ]
+13 verbose tarball C:\Users\Gil_S\AppData\Roaming\npm-cache\karma-failed-html-reporter\0.0.6\package.tgz
+14 verbose folder c:\Users\Gil_S\Source\Repos\karma-failed-html-reporter
+15 verbose addLocalTarball adding from inside cache C:\Users\Gil_S\AppData\Roaming\npm-cache\karma-failed-html-reporter\0.0.6\package.tgz
+16 verbose correctMkdir C:\Users\Gil_S\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd karma-failed-html-reporter@0.0.6
+18 verbose afterAdd C:\Users\Gil_S\AppData\Roaming\npm-cache\karma-failed-html-reporter\0.0.6\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\Gil_S\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\Gil_S\AppData\Roaming\npm-cache\karma-failed-html-reporter\0.0.6\package\package.json written
+21 silly publish { name: 'karma-failed-html-reporter',
+21 silly publish   version: '0.0.6',
+21 silly publish   description: 'A Karma plugin. Report all failed specs to html file.',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git://github.com/gilsmdt/karma-failed-html-reporter.git' },
+21 silly publish   keywords: [ 'karma-plugin', 'reporter' ],
+21 silly publish   author: { name: 'Gil Schmidt' },
+21 silly publish   dependencies: { colors: '~0.6.0', fs: '0.0.2', path: '0.12.7' },
+21 silly publish   peerDependencies: { karma: '>=0.9' },
+21 silly publish   license: 'MIT',
+21 silly publish   bugs: { url: 'https://github.com/gilsmdt/karma-failed-html-reporter/issues' },
+21 silly publish   homepage: 'https://github.com/gilsmdt/karma-failed-html-reporter#readme',
+21 silly publish   readme: 'karma-failed-html-reporter\n==============\n\nFilters the tests results just to the failed tests.\nGenerates an HTML report with the failed tests information.\n\nInstallations\n--------------\n*Install this plugin using npm*\n\n    npm install karma-failed-html-reporter\n\n*edit your `karma.conf.js`*\n \n*by adding this plugin like so:*\n\n    plugins: [\'karma-failed-html-reporter\' ],\n    \n\n*by including this reporter like so:*\n    \n    reporters: [\'failed\'],\n\nConfiguration\n--------------\n*you can add a configuration object to \'karma.conf.js\' file*\n\n    failedConfig: {\n\t\tverbose: true,\n\t\treportPath: \'d:\\\\failedReport.html\'\n\t}    \n    \n**verbose**\n\nwill write reporter outputs to console\n*default value*: false\n    \n**reportsPath**\n\nsets the full file path for the failed tests report html file. \n*default value*: working directory + failedReport.html \n\nLicense\n--------------\nLegal stuff...\n\n    Copyright (C) 2014 Jaap Broekhuizen <jaapz.b@gmail.com>\n                  2016 Gil Schmidt\n\n    Permission is hereby granted, free of charge, to any person obtaining\n    a copy of this software and associated documentation files (the "Software"),\n    to deal in the Software without restriction, including without limitation\n    the rights to use, copy, modify, merge, publish, distribute, sublicense,\n    and/or sell copies of the Software, and to permit persons to whom the\n    Software is furnished to do so, subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included\n    in all copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,\n    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\n    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\n    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,\n    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\n    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE\n    OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '42286bfaa440b47b26b6cc99666fcb7bc5a7c964',
+21 silly publish   _id: 'karma-failed-html-reporter@0.0.6',
+21 silly publish   _shasum: '7c141d9a4f459ab9fad3109297563abc8fdcfc76',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name karma-failed-html-reporter
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry uri https://registry.npmjs.org/karma-failed-html-reporter
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading C:\Users\Gil_S\AppData\Roaming\npm-cache\karma-failed-html-reporter\0.0.6\package.tgz
+29 verbose request uri https://registry.npmjs.org/karma-failed-html-reporter
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 15:55:01
+32 verbose request using bearer token for auth
+33 verbose request id 6f1076e9819c54bb
+34 http request PUT https://registry.npmjs.org/karma-failed-html-reporter
+35 http 403 https://registry.npmjs.org/karma-failed-html-reporter
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '95',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Fri, 19 Feb 2016 13:55:02 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-fra1223-FRA',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1455890101.173945,VS0,VE1026' }
+37 verbose request invalidating C:\Users\Gil_S\AppData\Roaming\npm-cache\registry.npmjs.org\karma-failed-html-reporter on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: "You cannot publish over the previously published version 0.0.6." : karma-failed-html-reporter
+39 verbose stack     at makeError (C:\Users\Gil_S\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (C:\Users\Gil_S\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:252:14)
+39 verbose stack     at Request._callback (C:\Users\Gil_S\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+39 verbose stack     at Request.self.callback (C:\Users\Gil_S\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:199:22)
+39 verbose stack     at emitTwo (events.js:87:13)
+39 verbose stack     at Request.emit (events.js:172:7)
+39 verbose stack     at Request.<anonymous> (C:\Users\Gil_S\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:1036:10)
+39 verbose stack     at emitOne (events.js:82:20)
+39 verbose stack     at Request.emit (events.js:169:7)
+39 verbose stack     at IncomingMessage.<anonymous> (C:\Users\Gil_S\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:963:12)
+40 verbose statusCode 403
+41 verbose pkgid karma-failed-html-reporter
+42 verbose cwd c:\Users\Gil_S\Source\Repos\karma-failed-html-reporter
+43 error Windows_NT 10.0.10586
+44 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Gil_S\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "publish" "./"
+45 error node v4.3.1
+46 error npm  v3.7.3
+47 error code E403
+48 error "You cannot publish over the previously published version 0.0.6." : karma-failed-html-reporter
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]

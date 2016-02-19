@@ -4,8 +4,8 @@ karma-failed-html-reporter
 Filters the tests results just to the failed tests.
 Generates an HTML report with the failed tests information.
 
-Installations
---------------
+Installation
+------------
 *Install this plugin using npm*
 
     npm install karma-failed-html-reporter

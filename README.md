@@ -9,13 +9,15 @@ Install this using npm
 
     npm install karma-failed-html-reporter
 
-Include this specrunner in your `karma.conf.js` like so:
+Installations
 --------------
+*Include this specrunner in your `karma.conf.js` like so:*
 
     reporters: ['failed'],
 
-config (optional), you can add a configuration object to 'karma.conf.js' file
+Configuration
 --------------
+*you can add a configuration object to 'karma.conf.js' file*
 
     failedConfig: {
 		verbose: true,
@@ -23,10 +25,12 @@ config (optional), you can add a configuration object to 'karma.conf.js' file
 	}    
     
 **verbose**
+
 will write reporter outputs to console
 *default value*: false
     
 **reportsPath**
+
 sets the full file path for the failed tests report html file. 
 *default value*: working directory + failedReport.html 
 

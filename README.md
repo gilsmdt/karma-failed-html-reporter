@@ -6,24 +6,24 @@ Generates an HTML report with the failed tests information.
 
 Installation
 ------------
-*Install this plugin using npm*
+Install this plugin using npm
 
     npm install karma-failed-html-reporter
 
-*edit your `karma.conf.js`*
+Edit your karma.conf.js
  
-*by adding this plugin like so:*
+Add this plugin the the plugins array
 
     plugins: ['karma-failed-html-reporter' ],
     
 
-*by including this reporter like so:*
+Add this report to the reporters array
     
     reporters: ['failed'],
 
 Configuration
 --------------
-*you can add a configuration object to 'karma.conf.js' file*
+You can add a configuration object to karma.conf.js file
 
     failedConfig: {
 		verbose: true,
@@ -32,12 +32,15 @@ Configuration
     
 **verbose**
 
-will write reporter outputs to console
+Write reporter outputs to console
+
 *default value*: false
+
     
-**reportsPath**
+**reportPath**
 
 sets the full file path for the failed tests report html file. 
+
 *default value*: working directory + failedReport.html 
 
 License

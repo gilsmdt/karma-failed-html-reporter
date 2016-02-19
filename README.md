@@ -4,15 +4,15 @@ karma-failed-html-reporter
 Filters the tests results just to the failed tests.
 Generates an HTML report with the failed tests information.
 
-Install this using npm
---------------
-
-    npm install karma-failed-html-reporter
-
 Installations
 --------------
-*Include this specrunner in your `karma.conf.js` like so:*
+*Install this plugin using npm*
+    npm install karma-failed-html-reporter
 
+*edit your `karma.conf.js` by adding this plugin like so:*
+    plugins: ['karma-failed-html-reporter' ],
+    
+*edit your `karma.conf.js` by including this reporter like so:*    
     reporters: ['failed'],
 
 Configuration

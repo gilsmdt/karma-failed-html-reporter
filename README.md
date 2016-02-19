@@ -7,12 +7,18 @@ Generates an HTML report with the failed tests information.
 Installations
 --------------
 *Install this plugin using npm*
+
     npm install karma-failed-html-reporter
 
-*edit your `karma.conf.js` by adding this plugin like so:*
+*edit your `karma.conf.js`*
+ 
+*by adding this plugin like so:*
+
     plugins: ['karma-failed-html-reporter' ],
     
-*edit your `karma.conf.js` by including this reporter like so:*    
+
+*by including this reporter like so:*
+    
     reporters: ['failed'],
 
 Configuration

@@ -1,6 +1,6 @@
 {
   "name": "karma-failed-html-reporter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A Karma plugin. Report all failed specs to html file.",
   "main": "index.js",
   "scripts": {

@@ -1,19 +1,37 @@
 karma-failed-html-reporter
-=====================
+==============
 
-List all failed specs with the errors. For me, this is extremely useful because
-I have hundreds of tests, and this makes finding the failed tests a lot easier.
+Filters the tests results just to the failed tests.
+Generates an HTML report with the failed tests information.
 
-Install this using npm:
+Install this using npm
+--------------
 
     npm install karma-failed-html-reporter
 
 Include this specrunner in your `karma.conf.js` like so:
+--------------
 
     reporters: ['failed'],
 
+config (optional), you can add a configuration object to 'karma.conf.js' file
+--------------
+
+    failedConfig: {
+		verbose: true,
+		reportPath: 'd:\\failedReport.html'
+	}    
+    
+**verbose**
+will write reporter outputs to console
+*default value*: false
+    
+**reportsPath**
+sets the full file path for the failed tests report html file. 
+*default value*: working directory + failedReport.html 
+
 License
--------
+--------------
 Legal stuff...
 
     Copyright (C) 2014 Jaap Broekhuizen <jaapz.b@gmail.com>

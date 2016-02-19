@@ -1,13 +1,20 @@
 require('colors');
+var fs = require('fs');
+var path = require('path');        
 
-var FailedReporter = function (baseReporterDecorator, formatError) {
+var failedHtmlReporter = function (baseReporterDecorator, config, formatError) {
     const DEFAULT_FILE_NAME = 'failedReport.html';
 
     var that = this;
     var failedSpecs = [];
     var html;
     var msg;
-
+	var reporterConfig = config.failedConfig || {};
+	
+	// initialize configuration
+	var reportPath = reporterConfig.reportPath || path.join(process.cwd(), DEFAULT_FILE_NAME);
+	var verbose = reporterConfig.verbose || false;
+	
     baseReporterDecorator(this);
     
     this.onSpecComplete = function (browser, result) {
@@ -21,11 +28,14 @@ var FailedReporter = function (baseReporterDecorator, formatError) {
     }    
 
     this.onRunComplete = function(browsers, results) {
+		var hasFailedResults = false;
+		
         html = '<html><head><title>Karma failed tests report</title></head><body>';
         browsers.forEach(function (browser, index) {
             if (results.failed) {
+				hasFailedResults = true;
                 html += '<h2>' + browser + ' failed specs</h2>';
-                that.write('\n' + browser + ' failed specs:\n'.red)
+                write('\n' + browser + ' failed specs:\n'.red)
                 
                 if (failedSpecs[browser.id]) {
                     processFailedSpecs(failedSpecs[browser.id]);
@@ -34,8 +44,12 @@ var FailedReporter = function (baseReporterDecorator, formatError) {
         });
         
         html += '</body></html>';
-        writeToFile(html);
-        that.write("\n");
+		
+		if (hasFailedResults) {
+			writeToFile(html);
+			write("\n");
+		}		
+        
         this.failedSpecs = [];
     }
         
@@ -43,9 +57,9 @@ var FailedReporter = function (baseReporterDecorator, formatError) {
         failedSpecs.forEach(function (spec, index) {
             processSpecSuite(spec.suite);
             html += '<h4 style="display:inline; color:#424445">' + spec.description + '</h4>';
-            that.write(spec.description + '\n');            
+            write(spec.description + '\n');            
             processSpecLog(spec.log);
-            that.write(msg + '\n\n');
+            write(msg + '\n\n');
         });
     }
     
@@ -53,10 +67,10 @@ var FailedReporter = function (baseReporterDecorator, formatError) {
         html += '<br/>';
         specSuite.forEach(function (suiteName, index) {
             if (index === 0) {
-                that.write('  ');
+                write('  ');
             }
             html += '<h3 style="display:inline">' + suiteName + ' &#8658; </h3>';
-            that.write(suiteName + ' > '.grey);
+            write(suiteName + ' > '.grey);
         });
     }
     
@@ -70,18 +84,20 @@ var FailedReporter = function (baseReporterDecorator, formatError) {
         });
     }
 
-    function writeToFile(data) {
-        var fs = require('fs');
-        var path = require('path');        
-        //TODO: support filename from configuration
-        var filePath = path.join(__dirname, DEFAULT_FILE_NAME);
-        
-        fs.writeFileSync(filePath, data);
+    function writeToFile(data) {       
+        write('failed tests report generated to ' + reportPath);		
+        fs.writeFileSync(reportPath, data);
     }
+	
+	function write(msg) {
+		if (verbose) {
+			that.write(msg);
+		}
+	}
 };
 
-FailedReporter.$inject = ['baseReporterDecorator', 'formatError'];
+failedHtmlReporter.$inject = ['baseReporterDecorator', 'config', 'formatError'];
 
 module.exports = {
-    'reporter:failed': ['type', FailedReporter]
+    'reporter:failed': ['type', failedHtmlReporter]
 };

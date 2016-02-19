@@ -50,11 +50,12 @@ var FailedReporter = function (baseReporterDecorator, formatError) {
     }
     
     function processSpecSuite(specSuite) {
+        html += '<br/>';
         specSuite.forEach(function (suiteName, index) {
             if (index === 0) {
                 that.write('  ');
             }
-            html += '<br/><h3 style="display:inline">' + suiteName + ' &#8658; </h3>';
+            html += '<h3 style="display:inline">' + suiteName + ' &#8658; </h3>';
             that.write(suiteName + ' > '.grey);
         });
     }

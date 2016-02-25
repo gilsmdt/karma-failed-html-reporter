@@ -12,7 +12,7 @@ Install this plugin using npm
 
 Edit your karma.conf.js
  
-Add this plugin the the plugins array
+Add this plugin to the plugins array
 
     plugins: ['karma-failed-html-reporter' ],
     
@@ -39,7 +39,7 @@ Write reporter outputs to console
     
 **reportPath**
 
-sets the full file path for the failed tests report html file. 
+Sets the full file path for the failed tests report html file. 
 
 *default value*: working directory + failedReport.html 
 

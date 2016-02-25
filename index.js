@@ -56,7 +56,7 @@ var failedHtmlReporter = function (baseReporterDecorator, config, formatError) {
     function processFailedSpecs(failedSpecs) {
         failedSpecs.forEach(function (spec, index) {
             processSpecSuite(spec.suite);
-            html += '<h4 style="display:inline; color:#424445">' + spec.description + '</h4>';
+            processSpecDescription(spec.description);
             write(spec.description + '\n');            
             processSpecLog(spec.log);
             write(msg + '\n\n');
@@ -64,22 +64,30 @@ var failedHtmlReporter = function (baseReporterDecorator, config, formatError) {
     }
     
     function processSpecSuite(specSuite) {
-        html += '<br/>';
+        html += '<br/><div style="background-color:#CA3A11; color:white;">';
+        
         specSuite.forEach(function (suiteName, index) {
-            if (index === 0) {
+            if (index > 0) {
                 write('  ');
+                html += ' > ';
             }
-            html += '<h3 style="display:inline">' + suiteName + ' &#8658; </h3>';
+            html += suiteName;
             write(suiteName + ' > '.grey);
         });
+        
+        html += "</div>";
     }
+	
+	function processSpecDescription(description) {
+		html += '<div style="background-color:#EEEEEE; color:#454545; border-bottom:solid #DDDDDD 1px">' + description + '</div>';
+	}
     
     function processSpecLog(specLog) {
         msg = '';
 
         specLog.forEach(function (log) {
-            var formattedError = formatError(log, '<span style="width:10px"></span>').replace('\n', '<br/>');
-            html += '<div style="padding-left:10px; color:#8F1428">' + formattedError + '</div>';
+            var formattedError = formatError(log).replace('\n', '<br/><span style="width:10px; font-weight:normal">');
+            html += '<div style="padding-left:10px; color:#767676;font-weight:bold;">' + formattedError + '</span></div>';
             msg += formatError(log, '\t');
         });
     }

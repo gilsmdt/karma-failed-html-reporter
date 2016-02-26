@@ -1,6 +1,6 @@
 {
   "name": "karma-failed-html-reporter",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Karma plugin. Report all failed specs to html file.",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   ],
   "author": "Gil Schmidt",
   "dependencies": {
-    "colors": "~0.7.0",
+    "colors": "0.7.0",
 	"fs": "0.0.2",
 	"path": "0.12.7"
   },
